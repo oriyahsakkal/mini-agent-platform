@@ -206,12 +206,13 @@ curl -X POST http://127.0.0.1:8000/agents/1/run \
 
 ## Rate Limiting
 
-- Applied per tenant on the agent execution endpoint
-- Limit: **5 requests per 60 seconds**
+- Applied **per tenant** on the agent execution endpoint
+- Limit: **5 requests per tenant per 60 seconds**
 - Exceeding the limit returns:
   - **429 Too Many Requests**
 
-Rate limiting is implemented **in-memory** for simplicity.
+Rate limiting is implemented in-memory for simplicity and demonstration purposes.
+
 
 ---
 ## Agent Run History
