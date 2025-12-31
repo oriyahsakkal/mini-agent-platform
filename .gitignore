@@ -1,0 +1,19 @@
+# virtual env
+venv/
+.venv/
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# pytest / tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# local DB files
+agent_platform.db
+*.sqlite
+*.sqlite3
