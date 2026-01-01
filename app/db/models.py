@@ -42,6 +42,7 @@ class Tool(Base):
         "Agent",
         secondary=agent_tools,
         back_populates="tools",
+        passive_deletes=True,
     )
 
 
@@ -62,12 +63,14 @@ class Agent(Base):
         "Tool",
         secondary=agent_tools,
         back_populates="agents",
+        passive_deletes=True,
     )
 
     # Relationship kept for ORM completeness; deletion is handled by FK(ondelete="CASCADE").
     executions: Mapped[list["AgentExecution"]] = relationship(
         "AgentExecution",
         back_populates="agent",
+        passive_deletes=True,
     )
 
 
