@@ -2,6 +2,7 @@ from fastapi import FastAPI, Depends
 
 from app.deps import get_tenant_id
 from app.api.routers.tools import router as tools_router
+from app.api.routers.agents import router as agents_router
 
 app = FastAPI(
     title="Mini Agent Platform",
@@ -26,3 +27,4 @@ def whoami(tenant_id: str = Depends(get_tenant_id)):
 
 
 app.include_router(tools_router)
+app.include_router(agents_router)
