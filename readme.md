@@ -19,6 +19,15 @@ All requests are authenticated using API keys, and **data is fully isolated per 
 
 ---
 
+## Architecture
+
+The codebase follows a layered architecture:
+API routers handle HTTP concerns only, services contain business logic,
+and repositories are responsible for data access.
+This separation improves maintainability and testability.
+
+---
+
 ## Key Features
 
 ### Multi-Tenant Architecture
