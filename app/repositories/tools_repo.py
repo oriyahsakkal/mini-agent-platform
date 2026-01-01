@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from sqlalchemy.orm import Session
 from app.db.models import Tool
 
@@ -17,7 +19,7 @@ class ToolsRepository:
         self.db.refresh(tool)
         return tool
 
-    def list(self, tenant_id: str) -> list[Tool]:
+    def list_tools(self, tenant_id: str) -> list[Tool]:
         return (
             self.db.query(Tool)
             .filter(Tool.tenant_id == tenant_id)
@@ -38,3 +40,13 @@ class ToolsRepository:
     def delete(self, tool: Tool) -> None:
         self.db.delete(tool)
         self.db.commit()
+
+    def get_many(self, tenant_id: str, tool_ids: list[int]):
+        return (
+            self.db.query(Tool)
+            .filter(
+                Tool.tenant_id == tenant_id,
+                Tool.id.in_(tool_ids),
+            )
+            .all()
+        )

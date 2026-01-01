@@ -14,7 +14,7 @@ class ToolsService:
             raise ConflictError("Tool name already exists for this tenant")
 
     def list(self, tenant_id: str):
-        return self.repo.list(tenant_id)
+        return self.repo.list_tools(tenant_id)
 
     def get(self, tenant_id: str, tool_id: int):
         tool = self.repo.get(tenant_id, tool_id)
