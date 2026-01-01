@@ -1,5 +1,11 @@
 from fastapi import HTTPException
-from app.core.errors import NotFoundError, ConflictError, BadRequestError, RateLimitError
+from app.core.errors import (
+    NotFoundError,
+    ConflictError,
+    BadRequestError,
+    RateLimitError,
+)
+
 
 def raise_http(e: Exception) -> None:
     if isinstance(e, NotFoundError):
